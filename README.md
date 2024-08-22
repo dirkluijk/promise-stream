@@ -4,7 +4,7 @@
 
 [![NPM version](http://img.shields.io/npm/v/@dirkluijk/promise-stream.svg?style=flat-square)](https://www.npmjs.com/package/@dirkluijk/promise-stream)
 [![NPM downloads](http://img.shields.io/npm/dm/@dirkluijk/promise-stream.svg?style=flat-square)](https://www.npmjs.com/package/@dirkluijk/promise-stream)
-[![Build status](https://github.com/dirkluijk/promise-stream/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/dirkluijk/promise-stream/actions/workflows/main.yml)
+[![Build status](https://github.com/dirkluijk/promise-stream/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/dirkluijk/promise-stream/actions/workflows/main.yml)
 
 ## Overview
 
