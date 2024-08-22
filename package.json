@@ -2,6 +2,11 @@
   "name": "@dirkluijk/promise-stream",
   "description": "A stream-like Promise for JavaScript",
   "author": "Dirk Luijk <mail@dirkluijk.nl>",
+  "version": "1.0.0",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/dirkluijk/promise-stream.git"
@@ -17,6 +22,10 @@
     "test": "vitest run",
     "test:coverage": "vitest run --coverage"
   },
+  "files": [
+    "dist/**/*",
+    "README.md"
+  ],
   "devDependencies": {
     "@total-typescript/tsconfig": "^1.0.4",
     "@types/node": "^22.4.2",
