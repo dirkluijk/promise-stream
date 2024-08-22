@@ -36,7 +36,7 @@ The limitations are intended. For extensive reactive apps I would recommend to u
 npm install @dirkluijk/promise-stream
 ```
 
-### Creating a `PromiseStream`
+### Creating a `PromiseStream<T>`
 
 This works the same as a regular `Promise`, but you have three callbacks: `next`, `complete` and `error`.
 
@@ -55,7 +55,7 @@ const myStream = new PromiseStream<string>((next, complete, error) => {
 * `error` accepts an optional error value
 * once completed or failed, no values are accepted anymore
 
-### Consuming a `PromiseStream`
+### Consuming a `PromiseStream<T>`
 
 You can use callbacks:
 ```typescript
