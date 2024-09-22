@@ -2,7 +2,7 @@
   "name": "@dirkluijk/promise-stream",
   "description": "A stream-like Promise for JavaScript",
   "author": "Dirk Luijk <mail@dirkluijk.nl>",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "publishConfig": {
     "access": "public"
