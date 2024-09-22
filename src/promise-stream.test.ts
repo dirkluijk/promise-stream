@@ -215,7 +215,8 @@ describe('PromiseStream', () => {
         expect(callbackFn).toHaveBeenNthCalledWith(2, 'baz');
     });
 
-    it('should work asynchronously', () => {
+    it('should work asynchronously', async () => {
+        const next = vi.fn();
         const x = new PromiseStream((next, complete, error) => {
             next(10);
             next(20);
@@ -223,13 +224,16 @@ describe('PromiseStream', () => {
             complete();
         });
 
-        x.iterate((it) => {
+        await x.iterate((it) => {
             console.log("Got", it)
+            next(it)
         }).then(() => {
             console.log("Done")
         }).catch((err) => {
             console.log("Err", err)
         })
+
+        expect(next).toHaveBeenCalledTimes(3)
 
     });
 });

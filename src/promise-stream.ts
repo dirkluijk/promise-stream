@@ -42,19 +42,18 @@ export class PromiseStream<T> implements PromiseLike<void> {
     private triggerComplete(): void {
         if (this.state.type !== 'active') return;
 
-        new Promise<void>((resolve) => {
+        Promise.resolve().then(() => {
             this.state = { type: 'completed' };
             this.completeCallbacks.forEach((cb) => cb());
-            resolve();
         })
     }
 
     private triggerError(reason?: unknown): void {
         if (this.state.type !== 'active') return;
-        new Promise<void>((resolve) => {
+
+        Promise.resolve().then(() => {
             this.state = { type: 'failed', error: reason };
             this.errorCallbacks.forEach((cb) => cb(reason));
-            resolve();
         })
     }
 
