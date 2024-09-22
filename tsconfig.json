@@ -1,12 +1,7 @@
 {
-  "extends": "@total-typescript/tsconfig/tsc/no-dom/library",
-  "include": [
-    "./src/**/*.ts"
-  ],
-  "exclude": [
-    "./src/**/*.test.ts"
-  ],
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "outDir": "dist"
-  }
+  },
+  "exclude": ["**/*.test.ts"]
 }

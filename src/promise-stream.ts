@@ -42,15 +42,20 @@ export class PromiseStream<T> implements PromiseLike<void> {
     private triggerComplete(): void {
         if (this.state.type !== 'active') return;
 
-        this.state = { type: 'completed' };
-        this.completeCallbacks.forEach((cb) => cb());
+        new Promise<void>((resolve) => {
+            this.state = { type: 'completed' };
+            this.completeCallbacks.forEach((cb) => cb());
+            resolve();
+        })
     }
 
     private triggerError(reason?: unknown): void {
         if (this.state.type !== 'active') return;
-
-        this.state = { type: 'failed', error: reason };
-        this.errorCallbacks.forEach((cb) => cb(reason));
+        new Promise<void>((resolve) => {
+            this.state = { type: 'failed', error: reason };
+            this.errorCallbacks.forEach((cb) => cb(reason));
+            resolve();
+        })
     }
 
     public then<TResult1 = void, TResult2 = never>(
@@ -130,7 +135,7 @@ export class PromiseStream<T> implements PromiseLike<void> {
         return this.completed()
     }
 
-    public async *asyncIterator(): AsyncIterableIterator<T> {
+    public async* asyncIterator(): AsyncIterableIterator<T> {
         for (const value of this.buffer) {
             yield value;
         }

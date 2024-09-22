@@ -214,4 +214,22 @@ describe('PromiseStream', () => {
         expect(callbackFn).toHaveBeenNthCalledWith(1, 'bar');
         expect(callbackFn).toHaveBeenNthCalledWith(2, 'baz');
     });
+
+    it('should work asynchronously', () => {
+        const x = new PromiseStream((next, complete, error) => {
+            next(10);
+            next(20);
+            next(30);
+            complete();
+        });
+
+        x.iterate((it) => {
+            console.log("Got", it)
+        }).then(() => {
+            console.log("Done")
+        }).catch((err) => {
+            console.log("Err", err)
+        })
+
+    });
 });
